@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Superkeys Keyboard Shortcuts</title>
+    <link rel="stylesheet" href="../styles/bootstrap.min.css">
+    <style type="text/css">
+        .script {
+            font-family: "Courier New",serif;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container pt-5">
+
+    <h4 class="mb-5">Create keyboard shortcuts</h4>
+
+    <div id="error" class="alert alert-danger alert-dismissible fade show d-none">
+        <span class="message"></span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div id="message" class="alert alert-success alert-dismissible fade show d-none">
+        <span class="message"></span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div class="col-12 d-grid mb-3">
+        <button class="btn btn-success" id="add-group">Add New Group</button>
+    </div>
+
+    <form id="shortcuts" class="accordion">
+        <div id="example-group" class="d-none accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#example-body">
+                    Accordion Item #1
+                </button>
+            </h2>
+            <div id="example-body" class="accordion-collapse collapse" data-bs-parent="#shortcuts">
+                <div class="accordion-body d-grid gap-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="text" class="form-control group-name"
+                                   placeholder="Group name e.g. Outlook Mail"
+                                   aria-label="Group name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <textarea class="form-control filters" placeholder="URL filters (one per line)" aria-label="URL filters (one per line)">
+                            </textarea>
+                        </div>
+                    </div>
+                    <div id="example-shortcut" class="d-grid gap-3 shortcut">
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-3">
+                                <input type="text" class="form-control shortcut-definition trigger"
+                                       placeholder="Trigger e.g. shift+a"
+                                       aria-label="trigger"/>
+                            </div>
+                            <div class="col-7">
+                                <input type="text" class="form-control shortcut-definition description"
+                                       placeholder="Description"
+                                       aria-label="Description"/>
+                            </div>
+                            <div class="col-1">
+                                <input type="button" class="btn btn-outline-danger remove-shortcut" value="x"
+                                       tabindex="-1">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-10">
+                        <textarea class="form-control shortcut-definition script"
+                                  placeholder='console.log("javascript to execute")' aria-label="script"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3 save-row">
+                        <div class="col-12">
+                            <input type="button" class="save btn btn-primary" value="Save Group">
+                            <input type="button" class="add btn btn-success" value="Add Shortcut">
+                            <input type="button" class="remove btn btn-danger float-end" value="Remove Group">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form class="my-5">
+        <div class="my-3 row g-3 align-items-center">
+            <div class="col-auto">
+                <label for="helpShortcut" class="form-label">Show Shortcuts</label>
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control" id="helpShortcut" placeholder="e.g. ctrl+h">
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-outline-primary" id="saveHelp">Save</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-text">Show a guide of your configured keyboard shortcuts for a given page with the stroke of a key.</div>
+        </div>
+    </form>
+
+
+    <div class="card my-5">
+        <div class="card-body">
+            <p>
+                Using this extension requires at least some knowledge of JavaScript.
+                Typical usage would be writing a selector to find an element on the page and calling the
+                <code>#click</code> method on that element. For example, to add a shortcut on the Google search results
+                page to go to the next page of results, you might map something like <kbd>alt+n</kbd> to
+            </p>
+
+            <pre><code>document.getElementById('pnnext').click()</code></pre>
+
+            Shortcuts are defined in "Groups" and belong to specific sites using URL filters.
+            In the example above, you could use any combination of
+            <code>https://www.google.com/search?q</code>,
+            <code>google.com</code>, or
+            <code>https://www.google.com/</code>.
+            Though you'd probably just want to use the first one so the shortcut is only active on the
+            Google search results page.
+
+            Shortcuts can be
+            <ul>
+                <li> Single keys: a,b,c
+                <li> Keys with modifiers: shift+alt+a,command+b,ctrl+left
+                <li> Sequences of the above: a b, g shift+home
+                <li> Anything else you can do with <a href="https://craig.is/killing/mice" target="_blank">Mousetrap</a>
+            </ul>
+
+            Global shortcuts are configured by including no filter. You can also configure a shortcut to show the list of configured shortcuts for the page you're on.
+
+            <p>
+                Configured shortcuts are synchronized between installations via your browser account.
+            </p>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="bootstrap.bundle.min.js"></script>
+<script src="options.js"></script>
+</body>
+</html>

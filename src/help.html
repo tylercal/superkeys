@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../styles/bootstrap.min.css">
+    <script src="bootstrap.bundle.min.js"></script>
+    <title>Superkeys Help</title>
+</head>
+
+<body style="background-color: transparent">
+<div class="modal fade" id="help" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Superkeys Help</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="helpBody">
+                <table id="exampleGroup" class="table table-sm table-borderless">
+                    <thead>
+                        <tr><th colspan="2" class="group"></th></tr>
+                    </thead>
+                    <tbody>
+                        <tr id="exampleShortcut">
+                            <td><kbd class="trigger">esc</kbd></td>
+                            <td><span class="description text-muted mx-3">Close help</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="help.js"></script>
+</body>
+</html>
