@@ -3,7 +3,7 @@
 
   "name": "Super Keys",
   "description": "Configure keyboard shortcuts to perform JavaScript actions on sites.",
-  "version": "1.0.0",
+  "version": "1.0.1",
 
   "options_page": "src/options.html",
 

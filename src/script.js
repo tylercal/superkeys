@@ -53,6 +53,10 @@ function bind() {
 
 bind();
 
-chrome.storage.onChanged.addListener(changes => {
+chrome.storage.onChanged.addListener((changes, where) => {
+    let when = new Date()
+    let ts = when.getHours()+":"+when.getMinutes()+":"+when.getSeconds()
+    console.log(ts+" [cs] storage changed "+where)
+    console.log(changes)
     chrome.storage.sync.get(bind)
 })
