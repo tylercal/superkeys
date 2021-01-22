@@ -32,18 +32,6 @@ function restoreOptions() {
     });
 }
 
-function shortcutChanged() {
-    let filled = true
-    this.querySelectorAll('.shortcut-definition').forEach(field => filled &&= field.value !== "")
-    if (filled) {
-        let shortcut = document.getElementById("example-shortcut").cloneNode(true)
-        shortcut.removeAttribute("id")
-        shortcut.addEventListener('change', shortcutChanged)
-        this.parentNode.insertBefore(shortcut, this.nextSibling)
-        shortcut.querySelector('input').focus()
-    }
-}
-
 function removeGroup() {
     const group = this.closest('.accordion-item')
     const key = group.querySelector('.group-name').value
